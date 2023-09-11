@@ -5,13 +5,24 @@
 
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Textbox } from "./components/Textbox";
 
 const App = () => {
-  const orgName ='Optum';
+  const headerConfig = {
+    title: 'Optum'
+  };
+  const firstNameConfig = {
+    id: 'firstName',
+    value: '',
+    name: 'firstName',
+    label: 'First Name'
+  }
   return (
     <>
-      <Header companyName={orgName} />
-      <h1>Welcome to react</h1>
+      <Header headerConfig={headerConfig} />
+      <form  className="mt-5 needs-validation">
+        <Textbox textboxConfig={firstNameConfig} />
+      </form>
       <Footer />
     </>
   )
