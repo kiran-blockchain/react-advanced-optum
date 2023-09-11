@@ -1,4 +1,4 @@
-export const Dropdown =({dropdownConfig})=>{
+export const Dropdown =({dropdownConfig,handleChangeEvent})=>{
     const buildList =()=>{
        return dropdownConfig.list.map((item,index)=>{
         return (<option key={index} value={item.value}>{item.name}</option>)

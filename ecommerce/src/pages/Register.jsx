@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Textbox } from "../components/Textbox"
 import { registerConfig } from "../helpers/registerConfig"
 import { Dropdown } from "../components/Dropdown";
@@ -34,6 +34,21 @@ export const Register = () => {
                     </tr>)
         })
     };
+    const [countryList,setCountryList] = useState([]);
+
+    useEffect(()=>{
+        fetch("https://restcountries.com/v2/all").then(x=>{
+            return x.json()
+        }).then(y=>{
+            console.log(y);
+            const mappedList = y.map(x=>{
+                return {value:x.alpha2Code,name:x.name}
+            });
+            setCountryList(mappedList);
+            registerConfig.country.list = mappedList;
+        })
+
+    },[])
 
 
     return (
@@ -46,16 +61,7 @@ export const Register = () => {
                 <Textbox textboxConfig={registerConfig.confirmPassword} handleChangeEvent={handleChange} />
                 <Dropdown dropdownConfig={registerConfig.country} handleChangeEvent={handleChange} />
             </form>
-            <table className="table table-striped">
-                <thead>
-                    <th>S.No</th>
-                    <th>Name</th>
-                    <th>Salary</th>
-                </thead>
-                <tbody>
-                    {buildEmployeeRows()}
-                </tbody>
-            </table>
+         {JSON.stringify(register)}
         </div>
     )
 }
