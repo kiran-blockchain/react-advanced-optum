@@ -1,10 +1,25 @@
+import { useState } from "react";
 import { Textbox } from "../components/Textbox"
 import { registerConfig } from "../helpers/registerConfig"
 
 export const Register = () => {
+    const [register, setProfile] = useState({
+        firstName: "",
+        lastName: "",
+        age: "",
+        gender: "",
+        password: "",
+        confirmPassword: ""
+    });
     const handleChange = (e) => {
-        console.log(e.target.name + "=>" + e.target.value)
+        console.log(register);
+        const newProfile = register;
+        console.log(e.target.name+"=>"+e.target.value);
+        newProfile[e.target.name] = e.target.value
+       
+        setProfile({...newProfile});
     };
+
     return (
         <div className="container mt-5">
             <form >
@@ -14,6 +29,7 @@ export const Register = () => {
                 <Textbox textboxConfig={registerConfig.password} handleChangeEvent={handleChange} />
                 <Textbox textboxConfig={registerConfig.confirmPassword} handleChangeEvent={handleChange} />
             </form>
+            {JSON.stringify(register)}
         </div>
     )
 }

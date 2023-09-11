@@ -12,16 +12,10 @@ const App = () => {
   const headerConfig = {
     title: 'Optum'
   };
-  const firstNameConfig = {
-    id: 'firstName',
-    value: '',
-    name: 'firstName',
-    label: 'First Name'
-  }
   return (
     <>
       <Header headerConfig={headerConfig} />
-      <div className="row">
+      <div className="container">
         <Register/>
       </div>
       <Footer />
