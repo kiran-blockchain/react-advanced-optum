@@ -14,6 +14,8 @@ export const Dropdown =({dropdownConfig})=>{
                 name={dropdownConfig.name}
                 value={dropdownConfig.value}
                 id={dropdownConfig.id} 
+                onChange={e=>{
+                    handleChangeEvent(e)}}
                 >
                     <option value="">{dropdownConfig.placeHolder}</option>
                      {buildList()}
