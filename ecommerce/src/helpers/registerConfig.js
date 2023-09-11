@@ -35,5 +35,14 @@ export const  registerConfig ={
         name:"email",
         placeHolder:"Enter Email"
     },
+    country:{
+        label:"Country",
+        id:"country",
+        name:"country",
+        placeHolder:"Select Country",
+        list :[{name:"Bharat","value":"IND"},
+        {name:"United States","value":"USA"},
+        {name:"Australia","value":"AUS"}]
+    },
 
 }
