@@ -10,7 +10,8 @@ export const Register = () => {
         age: "",
         gender: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
+        country:""
     });
     const handleChange = (e) => {
         console.log(register);

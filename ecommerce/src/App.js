@@ -5,7 +5,9 @@
 
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Product } from "./components/Product";
 import { Textbox } from "./components/Textbox";
+import { Products } from "./pages/Products";
 import { Register } from "./pages/Register";
 
 const App = () => {
@@ -16,7 +18,8 @@ const App = () => {
     <>
       <Header headerConfig={headerConfig} />
       <div className="container">
-        <Register/>
+        {/* <Register/> */}
+        <Products/>
       </div>
       <Footer />
     </>
