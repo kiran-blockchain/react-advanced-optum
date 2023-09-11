@@ -6,6 +6,7 @@
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Textbox } from "./components/Textbox";
+import { Register } from "./pages/Register";
 
 const App = () => {
   const headerConfig = {
@@ -20,9 +21,9 @@ const App = () => {
   return (
     <>
       <Header headerConfig={headerConfig} />
-      <form  className="mt-5 needs-validation">
-        <Textbox textboxConfig={firstNameConfig} />
-      </form>
+      <div className="row">
+        <Register/>
+      </div>
       <Footer />
     </>
   )

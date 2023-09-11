@@ -1,4 +1,4 @@
-export const Textbox = ({ textboxConfig }) => {
+export const Textbox = ({ textboxConfig,handleChangeEvent }) => {
     return (
         <div class="row mb-3">
             <label for={textboxConfig.id}
@@ -8,7 +8,14 @@ export const Textbox = ({ textboxConfig }) => {
                     class="form-control"
                     name={textboxConfig.name}
                     value={textboxConfig.value}
-                    id={textboxConfig.id} />
+                    id={textboxConfig.id} 
+                    placeholder={textboxConfig.placeHolder}
+                    onChange={e=>{
+                        // console.log(e.target.name + "=>"+ e.target.value)
+                        handleChangeEvent(e);
+                    }}
+                    />
+                    
             </div>
         </div>
     )
