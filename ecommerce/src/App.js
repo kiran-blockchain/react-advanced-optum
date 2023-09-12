@@ -11,37 +11,45 @@ import { Textbox } from "./components/Textbox";
 import { Products } from "./pages/Products";
 import { Register } from "./pages/Register";
 import { CartContext } from "./providers/cartProvider";
+import { ShowCount } from "./components/Counter/showCount";
+import { Increment } from "./components/Counter/increment";
+import { Provider } from "react-redux";
+import store from "./store"
 
 const App = () => {
   const headerConfig = {
     title: 'Optum'
   };
-  const [cart,setCart] = useState([])
-  const addItemsToCart = (item)=>{
-    
-    setCart([...cart,item]);
-  }
-  const removeItemsFromCart =(item)=>{
-    const index = cart.findIndex(x=>x.id==item.id);
-    if(index>-1){
+  const [cart, setCart] = useState([])
+  const addItemsToCart = (item) => {
+
+    setCart([...cart, item]);
+  };
+  const removeItemsFromCart = (item) => {
+    const index = cart.findIndex(x => x.id == item.id);
+    if (index > -1) {
       const newCart = [...cart];
-      newCart.splice(index,1)
+      newCart.splice(index, 1)
       setCart(newCart)
     }
-    
-
-  }
+  };
   return (
-    <CartContext.Provider value={{cartItems:cart,
-    addToCart:addItemsToCart,
-    removeFromCart:removeItemsFromCart}}>
-      <Header headerConfig={headerConfig} />
-      <div className="container">
-        {/* <Register/> */}
-        <Products />
+    <Provider store={store}>
+      <div>
+        <Increment />
+        <ShowCount />
       </div>
-      <Footer />
-    </CartContext.Provider>
+    </Provider>
+    // <CartContext.Provider value={{cartItems:cart,
+    // addToCart:addItemsToCart,
+    // removeFromCart:removeItemsFromCart}}>
+    //   <Header headerConfig={headerConfig} />
+    //   <div className="container">
+    //     {/* <Register/> */}
+    //     <Products />
+    //   </div>
+    //   <Footer />
+    // </CartContext.Provider>
   )
 }
 
