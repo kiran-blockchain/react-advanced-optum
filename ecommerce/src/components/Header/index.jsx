@@ -1,5 +1,13 @@
+import { useContext } from "react"
+import { CartContext } from "../../providers/cartProvider"
+
 export const Header = ({headerConfig}) => {
     //const {headerConfig} = props;
+    //fetch context
+    const cartCtx = useContext(CartContext);
+    const showCartCount = ()=>{
+        return cartCtx.cartItems.length;
+    }
     return (
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -27,7 +35,9 @@ export const Header = ({headerConfig}) => {
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                            <a class="nav-link disabled" aria-disabled="true">
+                            <i class="fa-solid fa-cart-shopping"></i> {showCartCount()}
+                            </a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">

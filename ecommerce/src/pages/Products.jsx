@@ -27,3 +27,5 @@ export const Products = () => {
             <ProductList list={products} />
         </div>)
 }
+export const XYS =()=>{}
+
