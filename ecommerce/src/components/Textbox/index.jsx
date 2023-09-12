@@ -1,4 +1,4 @@
-export const Textbox = ({ textboxConfig,handleChangeEvent }) => {
+export const Textbox = ({ textboxConfig,formik }) => {
     return (
         <div class="row mb-3">
             <label for={textboxConfig.id}
@@ -7,14 +7,12 @@ export const Textbox = ({ textboxConfig,handleChangeEvent }) => {
                 <input type={textboxConfig.type}
                     class="form-control"
                     name={textboxConfig.name}
-                    value={textboxConfig.value}
+                    value={formik.values[textboxConfig.name]}
                     id={textboxConfig.id} 
                     placeholder={textboxConfig.placeHolder}
-                    onChange={e=>{
-                        // console.log(e.target.name + "=>"+ e.target.value)
-                        handleChangeEvent(e);
-                    }}
+                    onChange={formik.handleChange}
                     />
+                     <small class="form-text text-danger">{formik.errors[textboxConfig.name]}</small>
                     
             </div>
         </div>

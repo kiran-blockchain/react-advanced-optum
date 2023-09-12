@@ -53,6 +53,7 @@ const [login,setLogin] = useState({
                     
             </div>
         </div>
+        <Textbox textboxConfig={registerConfig.firstName} formik={formik}/>
         <button className='btn btn-success' onClick={formik.handleSubmit}>Login</button>
     </form>
  )
