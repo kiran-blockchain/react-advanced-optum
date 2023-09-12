@@ -5,15 +5,15 @@ export const getApi = async (url) => {
         const result = await axios.get(url);
         return result.data;
     } catch (err) {
-        return "Error in fetching the data"
+        throw err;
     }
 }
 
-export const postApi = async (url,payload) => {
+export const postApi = async (url, payload) => {
     try {
-        const result = await axios.get(url,payload);
+        const result = await axios.get(url, payload);
         return result.data;
     } catch (ex) {
-        return "Error in fetching the data"
+        throw ex;
     }
 }

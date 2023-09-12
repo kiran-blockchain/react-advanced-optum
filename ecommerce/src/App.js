@@ -3,7 +3,7 @@
 // #3. Every component name must be starting with a capital letter
 // #4. Every component must be having a export statement.
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Product } from "./components/Product";
@@ -13,14 +13,16 @@ import { Register } from "./pages/Register";
 import { CartContext } from "./providers/cartProvider";
 import { ShowCount } from "./components/Counter/showCount";
 import { Increment } from "./components/Counter/increment";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import store from "./store"
 import { Cart } from "./components/Cart";
+import { fetchProducts } from "./store/productSlice";
 
 const App = () => {
   const headerConfig = {
     title: 'Optum'
   };
+  
   const [cart, setCart] = useState([])
   const addItemsToCart = (item) => {
 
@@ -34,6 +36,8 @@ const App = () => {
       setCart(newCart)
     }
   };
+
+  
   return (
     <Provider store={store}>
       <div>

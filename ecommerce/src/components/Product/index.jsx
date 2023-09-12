@@ -18,6 +18,7 @@ export const Product = ({ product }) => {
                    
                     <button class="btn btn-primary mt-4" onClick={e=>{
                         cartCtx.addToCart(product);
+                        
                         dispatch(addToCart(product));
                     
                     }}>+</button>
