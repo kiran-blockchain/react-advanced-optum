@@ -17,12 +17,13 @@ import { Provider, useDispatch } from "react-redux";
 import store from "./store"
 import { Cart } from "./components/Cart";
 import { fetchProducts } from "./store/productSlice";
+import { Login } from "./pages/Login";
 
 const App = () => {
   const headerConfig = {
     title: 'Optum'
   };
-  
+  //const dispatch = useDispatch();
   const [cart, setCart] = useState([])
   const addItemsToCart = (item) => {
 
@@ -40,7 +41,7 @@ const App = () => {
   
   return (
     <Provider store={store}>
-      <div>
+      {/* <div>
         <Increment />
         <ShowCount />
       </div>
@@ -52,7 +53,7 @@ const App = () => {
       }}>
         <Header headerConfig={headerConfig} />
         <div className="container">
-          {/* <Register/> */}
+         
           <div class="row">
             <div class="col-md-7">
               <Products />
@@ -63,7 +64,8 @@ const App = () => {
           </div>
           </div>
           <Footer />
-      </CartContext.Provider>
+      </CartContext.Provider> */}
+      <Login/>
     </Provider>
   )
 }
