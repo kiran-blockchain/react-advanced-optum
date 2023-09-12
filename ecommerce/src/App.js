@@ -18,13 +18,23 @@ const App = () => {
   };
   const [cart,setCart] = useState([])
   const addItemsToCart = (item)=>{
-    console.log(cart);
-    console.log(item)
+    
     setCart([...cart,item]);
+  }
+  const removeItemsFromCart =(item)=>{
+    const index = cart.findIndex(x=>x.id==item.id);
+    if(index>-1){
+      const newCart = [...cart];
+      newCart.splice(index,1)
+      setCart(newCart)
+    }
+    
+
   }
   return (
     <CartContext.Provider value={{cartItems:cart,
-    addToCart:addItemsToCart}}>
+    addToCart:addItemsToCart,
+    removeFromCart:removeItemsFromCart}}>
       <Header headerConfig={headerConfig} />
       <div className="container">
         {/* <Register/> */}

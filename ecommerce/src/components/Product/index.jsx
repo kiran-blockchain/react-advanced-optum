@@ -15,7 +15,10 @@ export const Product = ({ product }) => {
                    
                     <button class="btn btn-primary mt-4" onClick={e=>{
                         cartCtx.addToCart(product);
-                    }}>Add To Cart</button>
+                    }}>+</button>
+                    <button class="btn btn-primary mt-4" onClick={e=>{
+                        cartCtx.removeFromCart(product);
+                    }}>-</button>
                 </div>
             </div>
     )

@@ -2,6 +2,7 @@ import { createContext } from "react";
 
 const cartCtx = { 
     cartItems: [], 
-    addToCart: () => { } 
+    addToCart: () => { },
+    removeFromCart:()=>{}
 };
 export const CartContext = createContext(cartCtx)
