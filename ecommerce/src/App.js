@@ -15,6 +15,7 @@ import { ShowCount } from "./components/Counter/showCount";
 import { Increment } from "./components/Counter/increment";
 import { Provider } from "react-redux";
 import store from "./store"
+import { Cart } from "./components/Cart";
 
 const App = () => {
   const headerConfig = {
@@ -39,17 +40,27 @@ const App = () => {
         <Increment />
         <ShowCount />
       </div>
+
+      <CartContext.Provider value={{
+        cartItems: cart,
+        addToCart: addItemsToCart,
+        removeFromCart: removeItemsFromCart
+      }}>
+        <Header headerConfig={headerConfig} />
+        <div className="container">
+          {/* <Register/> */}
+          <div class="row">
+            <div class="col-md-7">
+              <Products />
+            </div>
+            <div class="col-md-4">
+              <Cart />
+            </div>
+          </div>
+          </div>
+          <Footer />
+      </CartContext.Provider>
     </Provider>
-    // <CartContext.Provider value={{cartItems:cart,
-    // addToCart:addItemsToCart,
-    // removeFromCart:removeItemsFromCart}}>
-    //   <Header headerConfig={headerConfig} />
-    //   <div className="container">
-    //     {/* <Register/> */}
-    //     <Products />
-    //   </div>
-    //   <Footer />
-    // </CartContext.Provider>
   )
 }
 

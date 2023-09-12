@@ -1,9 +1,12 @@
 import { useContext } from "react"
 import "./style.css"
 import { CartContext } from "../../providers/cartProvider"
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/cartSlice";
 export const Product = ({ product }) => {
     //fetch the cart context
     const cartCtx = useContext(CartContext);
+    const dispatch = useDispatch();
     return (
        
             <div class="card imageStyle mt-4 p-5" >
@@ -15,6 +18,8 @@ export const Product = ({ product }) => {
                    
                     <button class="btn btn-primary mt-4" onClick={e=>{
                         cartCtx.addToCart(product);
+                        dispatch(addToCart(product));
+                    
                     }}>+</button>
                     <button class="btn btn-primary mt-4" onClick={e=>{
                         cartCtx.removeFromCart(product);

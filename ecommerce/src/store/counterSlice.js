@@ -26,6 +26,6 @@ const counterSlice = createSlice({
     }
 });
 //actions wil be consumed by components
-export const{increment,decrement,reset} = counterSlice.actions;
+export const{increment,decrement,} = counterSlice.actions;
 //reducers will be consumed by store.
 export default counterSlice.reducer;

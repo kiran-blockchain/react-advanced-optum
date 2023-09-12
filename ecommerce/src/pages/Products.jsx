@@ -23,9 +23,9 @@ export const Products = () => {
         // })
     }, []);
     return (
-        <div className="row">
+        // <div className="row">
             <ProductList list={products} />
-        </div>)
+        )
 }
-export const XYS =()=>{}
+
 
