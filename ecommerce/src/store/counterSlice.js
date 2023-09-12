@@ -19,10 +19,13 @@ const counterSlice = createSlice({
             console.log(state);
             console.log(action);
             return { ...state, counter: state.counter - 1 } 
+        },
+        reset:(state,action)=>{
+            return {...initialState}
         }
     }
 });
 //actions wil be consumed by components
-export const{increment,decrement} = counterSlice.actions;
+export const{increment,decrement,reset} = counterSlice.actions;
 //reducers will be consumed by store.
 export default counterSlice.reducer;
