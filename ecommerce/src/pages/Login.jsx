@@ -21,39 +21,11 @@ const [login,setLogin] = useState({
 
  return(
     <form className='container mt-5'>
-       <div class="row mb-3">
-            <label for="email"
-                class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-4">
-                <input type="email"
-                    class="form-control"
-                    name="email"
-                    value={formik.values.email}
-                    id="email" 
-                    placeholder="Enter Email"
-                    onChange={formik.handleChange}
-                    />
-                    <small class="form-text text-danger">{formik.errors.email}</small>
-                    
-            </div>
-        </div>
-        <div class="row mb-3">
-            <label for="email"
-                class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-4">
-                <input type="password"
-                    class="form-control"
-                    name="password"
-                    value={formik.values.password}
-                    id="password" 
-                    placeholder="Enter Password"
-                    onChange={formik.handleChange}
-                    />
-                    <small class="form-text text-danger">{formik.errors.password}</small>
-                    
-            </div>
-        </div>
-        <Textbox textboxConfig={registerConfig.firstName} formik={formik}/>
+      <Textbox textboxConfig={registerConfig.firstName} formik={formik}/>
+      <Textbox textboxConfig={registerConfig.lastName} formik={formik}/>
+      <Textbox textboxConfig={registerConfig.email} formik={formik}/>
+      <Textbox textboxConfig={registerConfig.password} formik={formik}/>
+        
         <button className='btn btn-success' onClick={formik.handleSubmit}>Login</button>
     </form>
  )
